@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:p="http://primefaces.org/ui"
       xmlns:composite="http://java.sun.com/jsf/composite"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
     <composite:interface >
 
 
@@ -28,29 +29,29 @@
             <p:panelGrid columns="2" styleClass="form-group ui-panelgrid-blank" layout="grid">
                 <p:row>
                     <p:column>
-                        <p:commandButton                 
-                            styleClass="green-btn raised-btn" style="margin-bottom:10px;"
-                            icon="fa fa-edit Fs14 White" 
+                        <b:commandButton                 
+                             style="margin-bottom:10px;"
+                            iconAwesome="fa-edit" 
                             title="#{app['button.edit']}"
                             action="#{cc.attrs.edit}">
 
                             <f:param name="#{cc.attrs.param}" value="#{cc.attrs.itemid}"/>
-                        </p:commandButton>
+                        </b:commandButton>
                     </p:column>
                 </p:row>
                 <p:row>
                     <p:column>
-                        <p:commandButton  
-                            styleClass="pink-btn raised-btn"
+                        <b:commandButton  
+                            look="danger"
                             rendered="#{cc.attrs.rendered}"
-                            icon="fa fa-trash-o"
+                            iconAwesome="fa-trash-o"
                             title="#{app['button.delete']}"
                             oncomplete="remoteshowall();"
-                            process=":form:content :form:dataTable" 
+                            process=":form:dataTable" 
                             action="#{cc.attrs.delete}"
-                            update=":form:content" > 
+                            update=":form:dataTable" > 
                             <p:confirm header="#{app['dialog.delete']}" message="#{app['info.doyouwantdelete']}" icon="ui-icon-alert" />
-                        </p:commandButton>  
+                        </b:commandButton>  
                     </p:column>
                 </p:row>
 
