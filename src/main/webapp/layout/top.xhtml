@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:fragment xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://java.sun.com/jsf/html"
+             xmlns:ui="http://java.sun.com/jsf/facelets"
+             xmlns:f="http://java.sun.com/jsf/core"
+             xmlns:b="http://bootsfaces.net/ui"
+             xmlns:p="http://primefaces.org/ui">
+
+    <ui:remove>
+        <!--
+                    Hint to editors: The menus follow the Chicago style of capitalization. Please capitalize everything but the "smaller" words. 
+        -->
+    </ui:remove>
+    <b:navBar brand="#{msg['application.shorttitle']}"
+              brandHref="" inverse="true"
+              fixed="top">
+        <b:container>
+            <b:navbarLinks>
+                <b:navLink />
+                <b:navLink />
+                <b:navbarLinks>
+                    <b:navLink outcome="/index" value="Home" iconAwesome="home" />
+                </b:navbarLinks>
+                <b:dropMenu value="#{msg['menubar.registros']}" rendered="#{applicationMenu.menuBarHorarios}">
+                    <b:navLink value="#{msg['menu.reservar']}" outcome="/starter_template" icon="play-circle" />
+                    <b:navLink value="#{msg['menu.formulario']}" outcome="/pages/test/testpage" icon="play-circle" />
+
+
+                </b:dropMenu>
+              
+                <b:dropMenu value="#{msg['menubar.reportes']}" rendered="#{applicationMenu.menuBarReportes}">
+
+                </b:dropMenu>
+
+                <b:dropMenu value="#{msg['menubar.administracion']}" rendered="#{applicationMenu.menuBarAdministracion}">
+                    <b:navLink value="#{msg['menu.usuario']}" outcome="/starter_template" icon="play-circle" />
+                    <b:navLink value="#{msg['menu.rol']}" outcome="/grid" iconAwesome="desktop"  />
+
+                </b:dropMenu>
+                <b:dropMenu value="#{loginController.usuario.username}" rendered="#{loginController.loggedIn}">
+                    <h:form id="navbartopform">
+                    <p:commandLink class="btnn btnn-primary login-btn" value="#{app['button.logout']}" action="#{loginController.doLogout()}"/>
+
+                </h:form>
+
+                </b:dropMenu>
+            </b:navbarLinks>
+
+            
+           
+        </b:container>
+    </b:navBar>
+
+</ui:fragment>

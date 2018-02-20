@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition template="/layout/template.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:b="http://bootsfaces.net/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="content">
+        <h:outputStylesheet library="bsf" name="css/thumbnails.css"/>
+
+        <style>
+            .thumbnail { max-width: 100%; }
+            img.thumbnail:hover, img.thumbnail:focus {
+                border: 1px solid;
+                border-color: #428BCA;
+            }
+        </style>
+        <h1>test</h1>
+        <hr/>
+        <b:form>
+            <b:panelGrid colSpans="2,10" size="xs"> 
+
+
+                <p:outputLabel value="id"/>
+                <b:inputText span="8"/>
+                <p:outputLabel value="name"/>
+                <b:inputText span="10"/>
+            </b:panelGrid>
+
+        </b:form>
+        <!--                <b:row>
+                            <b:column span="2">
+                                <p:outputLabel value="id"/>
+                                
+                            </b:column>
+                            <b:column span="4" >
+                                <p:inputText/>
+                                
+                            </b:column>
+                            <b:column span="2">
+                                <p:outputLabel value="name"/>
+                                
+                            </b:column>
+                            <b:column span="4" >
+                                <p:inputText/>
+                                
+                            </b:column>
+                        </b:row>
+        -->
+        <br/><br/><br/>
+    </ui:define>
+</ui:composition>

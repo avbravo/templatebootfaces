@@ -1,0 +1,54 @@
+/**
+ *
+ * @author: avbravo
+ * Fecha: 2017-07-19
+ */
+proyecto=horariosseguridad
+package=com.avbravo.horariosseguridad
+entidadUser=Usuario
+atributosUsername=cedula
+atributosPassword=password
+atributosNombreMostrar=nombre
+atributosIdGrupo=
+entidadRoles=Rol
+typeUserGroup=Entity
+databasename=horariosseguridad
+database=mongodb
+templateStyle=AdminLTE
+typeUserGroupWithOutRol=false
+typeUserGroupField=false
+typeUserGroupEntity=true
+typeUserGroupList=false
+securityHttpSession=si
+segundosParaInactividad=0
+opcionMenuReportes=Registros
+entidadGruposUsuariosMultiples="" 
+atributosGrupousuarioMostrar=""
+roles=Administrador, Secretarioacademico, RecursosHumanos, AgenteSeguridad, Secretaria
+numeroMenuBar=4
+titulosMenuBar=Horarios,Registros,Reportes,Administracion
+titulosSubMenu={ Horarios:[Reservado , Reservadoagente]}{ Registros:[Agente , Diasfestivo , Marcacion , Permiso , Vacacion]}{ Reportes:[]}{ Administracion:[Rol , Usuario]}
+generarRemplazarMenu=generar
+addUserNameLogeado=false
+addFechaSystema=false
+maximoAutocomplete=4
+maximoAutocompleteItemLabel=3
+maximoAutocompleteItemTip=5
+fieldByRowView=1
+typeOfButton=Texto
+timeZone=
+patternDate=dd/MM/yyyy
+patternDateTime=HH:mm dd/MM/yyyy
+tipoCompilacionReporte=si
+frameworkPrimefaces=true
+frameworkBootfaces=false
+frameworkMaterialprime=false
+agente_menu=Administracion
+diasfestivo_menu=Administracion
+marcacion_menu=Administracion
+permiso_menu=Administracion
+reservado_menu=Administracion
+reservadoagente_menu=Administracion
+rol_menu=Administracion
+usuario_menu=Administracion
+vacacion_menu=Administracion

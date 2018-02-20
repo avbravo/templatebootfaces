@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>#{msg['application.title']}</title>
+        <meta name="author" content="Riccardo Massera"></meta>
+        <style type="text/css">
+            .form-signin {
+                margin: 0 auto;
+                max-width: 330px;
+                padding: 15px;
+            }
+        </style>
+        <f:facet name="first">
+            <f:view locale="#{idiomas.locale}"></f:view>
+            <f:loadBundle basename="com.avbravo.templatebootfaces.properties.messages" var="msg" />
+            <f:loadBundle basename="com.avbravoutils.properties.application" var="app" />
+
+        </f:facet>
+    </h:head>
+    <h:body style="padding-top: 60px; background-color: lightslategray">
+        <b:container>
+            <h:form styleClass="form-signin" prependId="false" id="form">
+                <p:messages id="growl" closable="true"  />
+                <h2 class="form-signin-heading">#{msg['application.shorttitle']}</h2>
+                <b:inputText id="username" value="#{loginController.username}" placeholder="#{app['login.username']}" >
+                    <f:facet name="prepend">
+                        <b:icon name="user" />
+                    </f:facet>
+                </b:inputText>
+                <b:inputText id="password" value="#{loginController.password}"  placeholder="#{app['login.password']}" type="password">
+                    <f:facet name="prepend">
+                        <b:iconAwesome name="key" />
+                    </f:facet>
+                </b:inputText>
+                <b:selectBooleanCheckbox value="true" caption="remember me"/>
+                <b:commandButton look="primary btn-block" value="#{app['button.login']}" 
+                                 action="#{loginController.doLogin()}" icon="log-in" size="lg"
+                                 update=":form:growl"/>
+
+                <p:confirmDialog widgetVar="sessionDialog" closable="false" global="true" showEffect="fade" hideEffect="fade" 
+                                 message="#{app['session.procederacerrar']}">
+                    <p:commandButton value="#{app['button.close']}" oncomplete="PF('sessionDialog').hide();" 
+                                     update=":form" styleClass="ui-confirmdialog-yes"
+                                     action="#{loginController.invalidateCurrentSession()}" />
+
+                </p:confirmDialog>
+            </h:form>
+        </b:container>
+    </h:body>
+</html>
