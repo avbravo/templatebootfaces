@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <composite:interface >
+
+
+        <composite:attribute name="param" />
+        <composite:attribute name="itemid" />
+        <composite:attribute name="rendered" />
+  
+
+
+        <composite:attribute name="edit" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="delete" 
+                             method-signature="java.lang.String action()" />
+
+
+    </composite:interface>
+    <composite:implementation>
+
+
+
+
+            <p:panelGrid columns="2" styleClass="form-group ui-panelgrid-blank" layout="grid">
+                <p:row>
+                    <p:column>
+                        <p:commandButton                 
+                            styleClass="green-btn raised-btn" style="margin-bottom:10px;"
+                            icon="fa fa-edit Fs14 White" 
+                            title="#{app['button.edit']}"
+                            action="#{cc.attrs.edit}">
+
+                            <f:param name="#{cc.attrs.param}" value="#{cc.attrs.itemid}"/>
+                        </p:commandButton>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column>
+                        <p:commandButton  
+                            styleClass="pink-btn raised-btn"
+                            rendered="#{cc.attrs.rendered}"
+                            icon="fa fa-trash-o"
+                            title="#{app['button.delete']}"
+                            oncomplete="remoteshowall();"
+                            process=":form:content :form:dataTable" 
+                            action="#{cc.attrs.delete}"
+                            update=":form:content" > 
+                            <p:confirm header="#{app['dialog.delete']}" message="#{app['info.doyouwantdelete']}" icon="ui-icon-alert" />
+                        </p:commandButton>  
+                    </p:column>
+                </p:row>
+
+
+
+            </p:panelGrid>
+   
+
+    </composite:implementation>
+
+</html>

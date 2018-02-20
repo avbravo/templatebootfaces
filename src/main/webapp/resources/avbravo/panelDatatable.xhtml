@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+    <composite:interface >
+
+
+        <composite:attribute name="page" />
+        <composite:attribute name="pages" type="java.util.List" />
+   
+
+        <composite:attribute name="first" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="back" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="next" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="last" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="listener" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="new" 
+                             method-signature="java.lang.String action()" />
+
+        <composite:attribute name="printAll" 
+                             method-signature="java.lang.String action()" />
+
+
+    </composite:interface>
+    <composite:implementation>
+
+
+
+        <p:panelGrid columns="7" columnClasses="ui-grid-col-1,ui-grid-col-1,ui-grid-col-1,ui-grid-col-1" layout="grid" styleClass="ui-panelgrid-blank form-group" style="border:0px none; background-color:transparent;">     
+
+            <p:commandButton   icon="fa fa-step-backward"                    
+                               oncomplete="remoteshowall();"
+                               action="#{cc.attrs.first}"
+                               update=":form:dataTable " />
+
+            <p:commandButton   icon="fa fa-caret-left"  
+
+                               oncomplete="remoteshowall();"
+                               action="#{cc.attrs.back}"
+                               update=":form:dataTable " /> 
+            <p:commandButton   icon="fa fa-play"  
+
+                               oncomplete="remoteshowall();"
+                               action="#{cc.attrs.next}" 
+                               update=":form:dataTable " /> 
+
+            <p:commandButton   icon="fa fa-step-forward"  
+                               oncomplete="remoteshowall();"
+                               action="#{cc.attrs.last}"  
+                               update=":form:dataTable " /> 
+            
+            <p:selectOneMenu id="pages"
+                             value="#{cc.attrs.page}" 
+                             effect="fold"    
+                             caseSensitive="true"
+                             style="color: black"
+
+                             >
+
+                <f:selectItems  value="#{cc.attrs.pages}" />
+                <p:ajax  process="pages"  event="change"
+                         oncomplete="remoteshowall();"
+                         update=":form:dataTable" 
+                         listener="#{cc.attrs.listener}"/> 
+            </p:selectOneMenu> 
+
+            <p:commandButton  icon="fa fa fa-plus"  
+                              action="#{cc.attrs.new}"
+
+                              update=":form:msgs" /> 
+
+            <p:commandButton icon="fa fa-print"   
+                             title="#{app['button.print']}"
+                             style="width:60px"
+                             process=":form:content"
+                             action="#{cc.attrs.printAll}" 
+                             ajax="false"
+                             update=":form:content" />
+        </p:panelGrid>
+    </composite:implementation>
+
+</html>

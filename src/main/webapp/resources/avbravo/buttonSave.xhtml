@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+    <composite:interface >
+
+
+        <composite:attribute name="rendered" />
+          <composite:attribute name="save" 
+                             method-signature="java.lang.String action()" />
+          
+
+    </composite:interface>
+    <composite:implementation>
+
+ <p:commandButton rendered="#{cc.attrs.rendered}" 
+                                                     styleClass="raised-btn"
+                                                     value="#{app['button.save']}"
+                                                     icon="fa fa-floppy-o"
+                                                     title="#{app['button.save']}"
+                                                     style="width:100px"
+                                                     action="#{cc.attrs.save}" 
+                                                     update=":form:content" /> 
+     
+
+        
+    </composite:implementation>
+
+</html>

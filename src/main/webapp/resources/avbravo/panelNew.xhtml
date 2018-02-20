@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+    <composite:interface >
+
+
+        <composite:attribute name="label" />
+        <composite:attribute name="value" />
+        <composite:attribute name="rendererList" />
+        
+        
+        <composite:attribute name="isnew" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="new" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="list"  
+                             method-signature="java.lang.String action()" />
+        
+
+    </composite:interface>
+    <composite:implementation>
+
+
+
+ <p:remoteCommand  update=":form:content :form:panel"
+                                  name="remoteid" 
+                                  actionListener="#{cc.attrs.isnew}"/>
+   
+
+        <p:panelGrid columns="4" columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4" layout="grid" styleClass="ui-panelgrid-blank form-group" style="border:0px none; background-color:transparent;">     
+            
+            
+            <p:outputLabel value="#{cc.attrs.label}"/>
+            <p:inputText id="name" 
+                         placeholder="#{app['info.ingresenuevodato']}"
+                         value="#{cc.attrs.value}" 
+                         required="true" requiredMessage="#{msg['field.idtamano']} #{app['info.required']}"
+                         immediate="true"
+                         onkeypress="if (event.keyCode == 13) {
+                                                         remoteid();
+                                                         return false;
+                                                     }">
+
+            </p:inputText>
+
+            <p:commandButton  icon="ui-icon-document"         
+                              immediate="true"
+                              title="#{app['button.new']}"
+                              value="#{app['button.new']}"
+                              style="width:100px"
+                              action="#{cc.attrs.new}"  update=":form:content" /> 
+
+
+            <p:commandButton immediate="true"
+                             icon="fa fa-search" 
+                              value="#{app['button.search']}" 
+                            
+                             rendered="#{cc.attrs.rendererList}" 
+                             title="#{app['button.search']}" style="width:100px" 
+                             action="#{cc.attrs.list}"/>
+
+        </p:panelGrid>
+    </composite:implementation>
+
+</html>
