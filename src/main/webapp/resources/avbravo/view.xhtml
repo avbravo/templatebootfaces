@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <composite:interface >
+
+
+        <composite:attribute name="renderedEdit" />
+        <composite:attribute name="renderedDelete" />
+        <composite:attribute name="renderedList" />
+
+        <composite:attribute name="url" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="edit" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="delete" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="print" 
+                             method-signature="java.lang.String action()" />
+
+
+    </composite:interface>
+    <composite:implementation>
+
+        <b:panelGrid id="panelEdit" colSpans="3,3,3,3" size="xs" > 
+
+            <b:commandButton rendered="#{cc.attrs.renderedEdit}" 
+
+                             iconAwesome="fa-edit" 
+                             title="#{app['button.edit']}"  
+                             value="#{app['button.edit']}"  
+                             process=":form:content" 
+                             action="#{cc.attrs.edit}" 
+                             update=":form:content" /> 
+            <b:dropMenu value="#{app['button.delete']}" iconAwesome="fa-trash-o">
+                <b:panel title="#{app['info.doyouwantdelete']}" >
+                    <b:button value="#{app['button.no']}" look="success" />
+                    <b:commandButton rendered="#{cc.attrs.renderedDelete}" 
+                                     look="danger"
+                                     iconAwesome="fa-trash-o" 
+                                     value="#{app['button.yes']}" 
+                                     title="#{app['button.delete']}" 
+                                     process=":form:content" 
+                                     action="#{cc.attrs.delete}" 
+                                     update=":form:content" > 
+
+                    </b:commandButton>
+                </b:panel>
+            </b:dropMenu>
+
+            <b:commandButton  
+                iconAwesome="fa-print"
+                rendered="#{cc.attrs.renderedList}"
+                value="#{app['button.print']}"
+                title="#{app['button.print']}"
+                process=":form:content" 
+                action="#{cc.attrs.print}"
+                ajax="false" 
+                update=":form:content" />
+            <b:commandButton immediate="true"
+                             iconAwesome="fa-search" 
+                             rendered="#{cc.attrs.renderedList}" 
+                             value="#{app['button.search']}" 
+                             title="#{app['button.search']}" 
+
+                             action="#{cc.attrs.url}"/>
+
+
+
+
+        </b:panelGrid>
+
+
+
+
+    </composite:implementation>
+
+</html>

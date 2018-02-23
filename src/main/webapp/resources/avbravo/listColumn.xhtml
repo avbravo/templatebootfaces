@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <composite:interface >
+
+
+        <composite:attribute name="param" />
+        <composite:attribute name="itemid" />
+        <composite:attribute name="rendered" />
+
+
+
+        <composite:attribute name="edit" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="delete" 
+                             method-signature="java.lang.String action()" />
+
+
+    </composite:interface>
+    <composite:implementation>
+
+
+
+
+        <p:panelGrid columns="2" styleClass="form-group ui-panelgrid-blank" layout="grid">
+            <p:row>
+                <p:column>
+                    <b:commandButton                 
+                        style="margin-bottom:10px;"
+                        iconAwesome="fa-edit" 
+                        title="#{app['button.edit']}"
+                        action="#{cc.attrs.edit}">
+
+                        <f:param name="#{cc.attrs.param}" value="#{cc.attrs.itemid}"/>
+                    </b:commandButton>
+                </p:column>
+            </p:row>
+            
+            <p:row>
+                <p:column>
+                    <b:dropMenu styleClass="danger"  value="" tooltip="#{app['button.delete']}" iconAwesome="fa-trash-o">
+                        <b:panel title="#{app['info.doyouwantdelete']}" >
+                           
+                            <b:button value="#{app['button.no']}" look="success" />
+                            <b:commandButton rendered="#{cc.attrs.rendered}" 
+                                             look="danger"
+                                             iconAwesome="fa-trash-o" 
+                                             value="#{app['button.yes']}" 
+                                             title="#{app['button.delete']}" 
+                                              oncomplete="remoteshowall();"
+                                             process=":form:dataTable" 
+                                             action="#{cc.attrs.delete}" 
+                                             update=":form:dataTable" > 
+
+                            </b:commandButton>
+                        </b:panel>
+                    </b:dropMenu>
+                </p:column>
+            </p:row>
+
+
+
+
+        </p:panelGrid>
+
+        <p:confirmDialog  global="true" showEffect="fade" hideEffect="explode">
+            <p:commandButton  class="btnn btnn-primary" value="#{app['button.yes']}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+            <p:commandButton class="btnn btnn-primary" value="#{app['button.no']}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </p:confirmDialog>
+    </composite:implementation>
+
+</html>

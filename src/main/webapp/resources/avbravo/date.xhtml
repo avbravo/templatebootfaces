@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <composite:interface >
+
+
+        <composite:attribute name="id" />
+        <composite:attribute name="value" />
+        <composite:attribute name="label"/>
+        <composite:attribute name="required" default="true"/>
+        <composite:attribute name="span" default="3"/>
+        <composite:attribute name="pattern" default="dd/MM/yyyy" />
+
+
+    </composite:interface>
+    <composite:implementation>
+
+        <b:datepicker   id="#{cc.attrs.id}" 
+                       
+            value="#{cc.attrs.value}"
+            placeholder="#{cc.attrs.label}"  
+            required="#{cc.attrs.required}" 
+            changeMonth="true"
+            changeYear="true"
+            span="#{cc.attrs.span}"
+            requiredMessage="#{cc.attrs.label} #{app['info.required']}">
+            <f:convertDateTime pattern="#{cc.attrs.pattern}"/>   
+        </b:datepicker>
+     
+      
+      
+
+    </composite:implementation>
+
+</html>

@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <composite:interface >
+
+
+        <composite:attribute name="label" />
+        <composite:attribute name="value" />
+        <composite:attribute name="rendererList" />
+
+
+        <composite:attribute name="isnew" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="new" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="list"  
+                             method-signature="java.lang.String action()" />
+
+
+    </composite:interface>
+    <composite:implementation>
+
+
+
+        <p:remoteCommand  update=":form:content :form:panel"
+                          name="remoteid" 
+                          actionListener="#{cc.attrs.isnew}"/>
+        <b:panel title="#{app['label.new']}">
+            <b:panelGrid  columns="1" size="xs"> 
+
+                <p:outputLabel value="#{cc.attrs.label}"/>
+                <b:inputText id="name" 
+                             placeholder="#{app['info.ingresenuevodato']}"
+                             value="#{cc.attrs.value}" 
+                             required="true" requiredMessage="#{cc.attrs.label} #{app['info.required']}"
+                             immediate="true"
+                             onkeypress="if (event.keyCode == 13) {
+                                         remoteid();
+                                         return false;
+                                     }">
+                    <f:facet name="prepend">
+                        <b:commandButton  iconAwesome="fa-plus"         
+                                          immediate="true"
+                                          title="#{app['button.new']}"
+                                          action="#{cc.attrs.new}"  update=":form:content" /> 
+
+                    </f:facet>
+                    <f:facet name="append">
+                        <b:commandButton immediate="true"
+                                         look="primary"
+                                         iconAwesome="fa-search" 
+
+
+                                         rendered="#{cc.attrs.rendererList}" 
+                                         title="#{app['button.search']}" 
+                                         action="#{cc.attrs.list}"/>
+
+                    </f:facet>
+                </b:inputText>
+
+
+
+
+            </b:panelGrid>
+        </b:panel>
+    </composite:implementation>
+
+</html>
