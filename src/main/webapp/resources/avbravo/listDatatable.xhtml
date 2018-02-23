@@ -36,7 +36,8 @@
 
         <!--<p:panelGrid columns="7" columnClasses="ui-grid-col-1,ui-grid-col-1,ui-grid-col-1,ui-grid-col-1" layout="grid" styleClass="ui-panelgrid-blank form-group" style="border:0px none; background-color:transparent;">-->     
         <b:panel>     
-
+<p:remoteCommand  update=":form:dataTable"
+                              name="remoteshowall" />
             <b:commandButton                      
                 iconAwesome="fa-step-backward"
                 oncomplete="remoteshowall();"

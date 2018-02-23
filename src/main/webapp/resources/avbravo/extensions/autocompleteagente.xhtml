@@ -26,10 +26,7 @@
         <p:autoComplete     dropdown="false"    
                          scrollHeight="250"  size="35" 
                             emptyMessage="#{app['info.nohayregistros']}" 
-                            title="#{app['info.by']} #{msg['field.idagente']}"
-                            label="#{app['info.by']} #{msg['field.idagente']}"
-
-                            alt="#{app['info.searchby']} #{msg['field.idagente']}"
+                          
                             value="#{cc.attrs.value}"  
                             completeMethod="#{agenteController.agenteServices.complete}"    
                             var="p"
