@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="802" pageHeight="555" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="362882A0-7293-44A6-A232-A206F0D43E9B" >
+        <property name="ireport.zoom" value="1.0"/>
+        <property name="ireport.x" value="0"/>
+        <property name="ireport.y" value="0"/>
+
+        <field name="numero" class="java.lang.Number"/>
+        <field name="nombre" class="java.lang.String"/>
+        <field name="turno" class="java.lang.Object"/>
+        <background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+               <band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="145" height="25" uuid="354A863D-2031-45E4-918D-ABDFB470D76B"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIA ]]></text>
+			</staticText>
+		</band>
+	</title>
+      <pageHeader>
+		<band height="3" splitType="Stretch"/>
+	</pageHeader>
+
+	<columnHeader>
+	    <band height="22" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="20" uuid="841DF5A0-B682-4F29-99EA-19478E24C0F0"/>
+                <text><![CDATA[Numero]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="111" y="0" width="100" height="20" uuid="EC523B84-C6F0-4533-B011-10667BC6A3F7"/>
+                <text><![CDATA[Nombre]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="222" y="0" width="100" height="20" uuid="97CBE3FB-01F7-42A9-A38A-5B7BD9EEDA31"/>
+                <text><![CDATA[Turno]]></text>
+            </staticText>
+	    </band>
+	</columnHeader>
+	<detail>
+	    <band height="23" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="100" height="20" uuid="D9B9BD00-2FB1-4CA9-874E-E3DA4AC2D9D2"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="111" y="0" width="100" height="20" uuid="DF65BC7B-8389-463D-BAE1-017D97931ACD"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="222" y="0" width="100" height="20" uuid="98BF8F2E-A74C-4141-A3DE-BD94DFB11306"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turno}.toString()]]></textFieldExpression>
+            </textField>
+	    </band>
+	</detail>
+    <columnFooter>
+        <band height="2" splitType="Stretch"/>
+    </columnFooter>
+    <summary>
+                <band height="18" splitType="Stretch">
+			<line>
+				<reportElement x="5" y="8" width="639" height="1" uuid="b6239680-0b79-41ce-a0aa-055c09eda3ed"/>
+			</line>
+		</band>
+    </summary>
+</jasperReport>

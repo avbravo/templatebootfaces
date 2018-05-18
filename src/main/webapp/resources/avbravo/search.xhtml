@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <composite:interface >
+
+ <composite:attribute name="update" default =":form:dataTable" />
+ 
+        <composite:attribute name="label" />
+        <composite:attribute name="value" />
+        <composite:attribute name="colSpans" default="4,8"/>
+        <composite:attribute name="columns" default="1" />
+         <composite:attribute name="renderedMove" default="true" />
+
+
+        <composite:attribute name="renderedList" />
+
+
+        <composite:attribute name="search"  
+                             method-signature="java.lang.String action()" />
+
+
+    </composite:interface>
+    <composite:implementation>
+
+
+
+
+        <!--<b:panel >-->
+           
+            <p:remoteCommand name="remotesearch"
+                         
+                             update="#{cc.attrs.update}"/>
+            
+            <b:panelGrid  columns="#{cc.attrs.columns}" size="xs" colSpans="#{cc.attrs.colSpans}"> 
+
+                <p:outputLabel value="#{cc.attrs.label}"/>
+                <b:inputText 
+                             placeholder="#{app['info.ingresenuevodato']}"
+                             value="#{cc.attrs.value}"                             
+                             required="false"
+
+                            >
+
+                    <f:facet name="append">
+                        <b:commandButton update="#{cc.attrs.update}"
+                                         look="info"
+                                         oncomplete="remotesearch()"
+                                         iconAwesome="fa-filter" 
+                                         rendered="#{cc.attrs.renderedList}" 
+                                         title="#{app['button.search']}" 
+                                         action="#{cc.attrs.search}"/>
+
+                    </f:facet>
+                </b:inputText>
+
+                
+
+
+            </b:panelGrid>
+        <!--</b:panel>-->
+    </composite:implementation>
+
+</html>

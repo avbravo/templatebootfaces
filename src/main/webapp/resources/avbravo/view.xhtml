@@ -12,6 +12,8 @@
         <composite:attribute name="renderedEdit" />
         <composite:attribute name="renderedDelete" />
         <composite:attribute name="renderedList" />
+               
+
 
         <composite:attribute name="url" 
                              method-signature="java.lang.String action()" />
@@ -36,7 +38,7 @@
                              process=":form:content" 
                              action="#{cc.attrs.edit}" 
                              update=":form:content" /> 
-            <b:dropMenu value="#{app['button.delete']}" iconAwesome="fa-trash-o">
+            <b:dropMenu value="#{app['button.delete']}" iconAwesome="fa-trash-o" rendered="#{cc.attrs.renderedDelete}">
                 <b:panel title="#{app['info.doyouwantdelete']}" >
                     <b:button value="#{app['button.no']}" look="success" />
                     <b:commandButton rendered="#{cc.attrs.renderedDelete}" 
@@ -52,29 +54,29 @@
                 </b:panel>
             </b:dropMenu>
 
-            <b:commandButton  
-                iconAwesome="fa-print"
-                rendered="#{cc.attrs.renderedList}"
-                value="#{app['button.print']}"
-                title="#{app['button.print']}"
-                process=":form:content" 
-                action="#{cc.attrs.print}"
-                ajax="false" 
-                update=":form:content" />
+           
+            
+            <p:commandButton icon="fa fa-print" 
+                                 rendered="#{cc.attrs.renderedList}"
+                                          value="#{app['button.print']}"
+                                         title="#{app['button.print']}" 
+                                         process=":form:content"
+                                         action="#{cc.attrs.print}" 
+                                         ajax="false"
+                                       update=":form:content"/> 
+            
+            
+            
             <b:commandButton immediate="true"
-                             iconAwesome="fa-search" 
-                             rendered="#{cc.attrs.renderedList}" 
-                             value="#{app['button.search']}" 
-                             title="#{app['button.search']}" 
+                             iconAwesome="fa-share" 
+
+                             value="#{app['button.return']}" 
+                             title="#{app['button.return']}" 
 
                              action="#{cc.attrs.url}"/>
 
 
-
-
         </b:panelGrid>
-
-
 
 
     </composite:implementation>

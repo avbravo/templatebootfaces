@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="63ad1a18-4d4e-44e1-97f8-c1744418d899">
+        <property name="ireport.zoom" value="1.0"/>
+        <property name="ireport.x" value="0"/>
+        <property name="ireport.y" value="144"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{SUBREPORT_DIR}]]></defaultValueExpression>
+	</parameter>
+
+        <field name="idcalendario" class="java.lang.String"/>
+        <field name="usuario" class="java.lang.Object"/>
+        <field name="anio" class="java.lang.Number"/>
+        <field name="mes" class="java.lang.String"/>
+        <field name="diasfestivo" class="java.util.List"/>
+        <field name="agendado" class="java.util.List"/>
+        <field name="turnocompleto" class="java.util.List"/>
+        <background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="9" splitType="Stretch"/>
+	</title>
+      <pageHeader>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="240" y="18" width="63" height="20" uuid="9e43e6b2-7c78-4094-bd32-bbce7a7ec79c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CALENDARIO]]></text>
+			</staticText>
+                        <staticText>
+				<reportElement x="373" y="18" width="34" height="20" uuid="14f76f42-77f2-4c4c-9596-6ec59fba0e85"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="yyyy">
+				<reportElement x="411" y="18" width="100" height="20" uuid="ac376dee-b970-4156-8eeb-e121ce7a91a3"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+
+		</band>
+	</pageHeader>
+
+	<columnHeader>
+	    <band height="29" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+	    <band height="352" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="20" uuid="7EB3AD9E-1E42-4845-89E0-04A76FCE2421"/>
+                <text><![CDATA[Idcalendario]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="0" width="100" height="20" uuid="DC91F6AF-D903-41A7-BD69-E35CEA7B50A5"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{idcalendario}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="0" width="100" height="20" uuid="B2830CA7-DA26-447B-8B90-D8D14F8DE135"/>
+                <text><![CDATA[Usuario]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="0" width="100" height="20" uuid="9C5C38D6-C178-4DDF-B933-D381C68D0E6D"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{usuario}.toString()]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="25" width="100" height="20" uuid="00BC9430-FC3F-405F-AA82-325A1B37D11E"/>
+                <text><![CDATA[Anio]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="25" width="100" height="20" uuid="A7337C97-77F6-4DA9-90CB-A3DBCE29E809"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{anio}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="25" width="100" height="20" uuid="536F94CE-8F8D-41DA-92A6-3F7C13BE8415"/>
+                <text><![CDATA[Mes]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="25" width="100" height="20" uuid="69B74021-9203-463C-8074-BBADBD929F6C"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+            </textField>
+                        <subreport>
+				<reportElement x="0" y="101" width="525" height="75" uuid="7ABAF395-FF2C-42B2-A9F0-40C7C8FF11FB"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{diasfestivo})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "diasfestivo_subreport.jasper"]]></subreportExpression>
+			</subreport>
+                        <subreport>
+				<reportElement x="0" y="181" width="525" height="75" uuid="7170A9B8-1F2A-4539-915B-175714430C61"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{agendado})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "agendado_subreport.jasper"]]></subreportExpression>
+			</subreport>
+                        <subreport>
+				<reportElement x="0" y="261" width="525" height="75" uuid="C16316D1-1B39-4B01-8BDA-D37DA99777D9"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{turnocompleto})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "turnocompleto_subreport.jasper"]]></subreportExpression>
+			</subreport>
+	    </band>
+	</detail>
+    <columnFooter>
+        <band height="45" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="54" splitType="Stretch">
+            <staticText>
+                <reportElement x="407" y="17" width="36" height="20" uuid="3d031e27-b1b6-47c8-bee2-2105f7a564b2"/>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Pag.:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="446" y="17" width="100" height="20" uuid="e0da8ee5-bb5c-4545-8272-3c5e0c2c00eb"/>
+                <textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
+</jasperReport>

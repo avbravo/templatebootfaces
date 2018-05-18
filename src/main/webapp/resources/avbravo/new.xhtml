@@ -11,6 +11,12 @@
 
         <composite:attribute name="label" />
         <composite:attribute name="value" />
+        <composite:attribute name="columns" default="1" />
+
+        <composite:attribute name="label2" default="" />
+        <composite:attribute name="value2" default=""/>
+        <composite:attribute name="disabled" default="false" />
+        <composite:attribute name="readonly" default="false" />
         <composite:attribute name="rendererList" />
 
 
@@ -31,13 +37,15 @@
                           name="remoteid" 
                           actionListener="#{cc.attrs.isnew}"/>
         <b:panel title="#{app['label.new']}">
-            <b:panelGrid  columns="1" size="xs"> 
+            <b:panelGrid  columns="#{cc.attrs.columns}" size="xs" colSpans="1,11"> 
 
                 <p:outputLabel value="#{cc.attrs.label}"/>
-                <b:inputText id="name" 
-                             placeholder="#{app['info.ingresenuevodato']}"
+                <b:inputText                              placeholder="#{app['info.ingresenuevodato']}"
                              value="#{cc.attrs.value}" 
-                             required="true" requiredMessage="#{cc.attrs.label} #{app['info.required']}"
+                             disabled="#{cc.attrs.disabled}" 
+                             readonly="#{cc.attrs.readonly}" 
+                             required="false"
+                             requiredMessage="#{cc.attrs.label} #{app['info.required']}"
                              immediate="true"
                              onkeypress="if (event.keyCode == 13) {
                                          remoteid();
@@ -45,15 +53,18 @@
                                      }">
                     <f:facet name="prepend">
                         <b:commandButton  iconAwesome="fa-plus"         
-                                          immediate="true"
+                                         
+                                          look="success"
                                           title="#{app['button.new']}"
-                                          action="#{cc.attrs.new}"  update=":form:content" /> 
+                                          action="#{cc.attrs.new}"  update=":form:content" > 
+                                <f:ajax />
+                        </b:commandButton>
 
                     </f:facet>
                     <f:facet name="append">
                         <b:commandButton immediate="true"
                                          look="primary"
-                                         iconAwesome="fa-search" 
+                                         iconAwesome="fa-share" 
 
 
                                          rendered="#{cc.attrs.rendererList}" 
@@ -63,7 +74,9 @@
                     </f:facet>
                 </b:inputText>
 
-
+                <p:outputLabel  value="#{cc.attrs.label2}" />
+                    <p:outputLabel value="#{cc.attrs.value2}"/>
+                
 
 
             </b:panelGrid>

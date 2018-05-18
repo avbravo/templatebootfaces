@@ -9,9 +9,14 @@
 
         <composite:attribute name="id" />
         <composite:attribute name="value" />
+        <composite:attribute name="mask" default="" />
         <composite:attribute name="label"/>
+        <composite:attribute name="render_label" default="false"/>
+        <composite:attribute name="readonly" default="false" />
         <composite:attribute name="required" default="true"/>
         <composite:attribute name="span" default="12"/>
+        <composite:attribute name="style" default=""/>
+        <composite:attribute name="title" default=""/>
         
 
     </composite:interface>
@@ -22,6 +27,11 @@
                       value="#{cc.attrs.value}"
                       placeholder="#{cc.attrs.label}"  
                       required="#{cc.attrs.required}"  
+                      readonly="#{cc.attrs.readonly}"  
+                      mask="#{cc.attrs.mask}"
+                      style="#{cc.attrs.style}"
+                      title="#{cc.attrs.title}"
+                      render-label="#{cc.attrs.render_label}"
                   span="#{cc.attrs.span}" 
                       requiredMessage="#{cc.attrs.label} #{app['info.required']}"/>
 

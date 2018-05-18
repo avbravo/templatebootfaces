@@ -8,9 +8,12 @@
     <composite:interface >
 
 
-        <composite:attribute name="param" />
-        <composite:attribute name="itemid" />
+<!--        <composite:attribute name="param" />
+        <composite:attribute name="itemid" />-->
         <composite:attribute name="rendered" />
+<!--        <composite:attribute name="param2" default="" />
+        <composite:attribute name="param2value" default="" />-->
+        
 
 
 
@@ -28,17 +31,20 @@
 
         <p:panelGrid columns="2" styleClass="form-group ui-panelgrid-blank" layout="grid">
             <p:row>
-                <p:column>
+                        <p:column>
+
                     <b:commandButton                 
                         style="margin-bottom:10px;"
                         iconAwesome="fa-edit" 
                         title="#{app['button.edit']}"
+                        immediate="true"
+                        oncomplete="remoteid()"
                         action="#{cc.attrs.edit}">
-
-                        <f:param name="#{cc.attrs.param}" value="#{cc.attrs.itemid}"/>
+<!--                        <f:param name="#{cc.attrs.param}" value="#{cc.attrs.itemid}"/>
+                        <f:param name="#{cc.attrs.param2}" value="#{cc.attrs.param2value}"/>-->
                     </b:commandButton>
                 </p:column>
-            </p:row>
+                  </p:row>
             
             <p:row>
                 <p:column>
@@ -67,10 +73,6 @@
 
         </p:panelGrid>
 
-        <p:confirmDialog  global="true" showEffect="fade" hideEffect="explode">
-            <p:commandButton  class="btnn btnn-primary" value="#{app['button.yes']}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-            <p:commandButton class="btnn btnn-primary" value="#{app['button.no']}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-        </p:confirmDialog>
     </composite:implementation>
 
 </html>

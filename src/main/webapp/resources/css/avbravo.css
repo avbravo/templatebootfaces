@@ -1,0 +1,94 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02/28/2018, 11:19:25 PM
+    Author     : avbravo
+*/
+/*.someStyleClass .ui-widget-content
+{
+ background-color: transparent;
+}
+.myTable td:nth-child(1) {
+    width: 20px;
+}
+
+.ui-datatable.borderless thead {
+  display: none;
+}*/
+
+
+.ui-datatable * {
+    /*     background-color: white !important;
+         border: 0.1px dotted black !important;
+    */
+    border-collapse:collapse;width:100%;
+    background-color: white !important;
+
+}
+/*th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+}*/
+
+.ui-datatable .ui-datatable-header,.ui-datatable .ui-datatable-footer{
+    text-align:center;padding:4px 10px;
+}
+.ui-datatable .ui-datatable-header{
+    border-bottom:0px none;
+}
+.ui-datatable .ui-datatable-footer{
+    border-top:0px none;
+}
+
+
+
+.ui-button.ui-state-default {
+    /*background-color: #428bca!important;*/
+
+    border-radius:4px !important;
+    border:1px solid #83c41a !important;
+    font-size:12px !important;
+    padding:6px 18px !important;
+
+    background-color: #F2F5F9 !important;
+    border-color: #357ebd !important;
+}
+
+.ui-button.ui-state-hover {
+    background-color: #d4d0c8!important;
+}
+.ui-button.ui-state-active {
+    background-color: blue !important;
+}
+
+
+.ui-widget-content .ui-datatable-even{
+    background: #F2F5F9;
+}
+
+.ui-widget-content .ui-datatable-odd{
+    background: red;
+}
+/*.ui-datatable-odd {
+    background: #ffffff;
+}*/
+/*.ui-datatable-odd {
+    background: #009900;
+}
+
+.ui-datatable-even {
+    background: #F2F5F9;
+}*/
+
+/*.coloredalert {
+    background-color: #9972b5;
+    color: #FFFFFF;
+}
+.coloredred {
+    background-color: #720e9e;
+    color: #FFFFFF;
+}    */

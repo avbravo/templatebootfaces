@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="63ad1a18-4d4e-44e1-97f8-c1744418d899">
+        <property name="ireport.zoom" value="1.0"/>
+        <property name="ireport.x" value="0"/>
+        <property name="ireport.y" value="144"/>
+
+        <field name="idturno" class="java.lang.String"/>
+        <field name="horainicio" class="java.lang.String"/>
+        <field name="horafin" class="java.lang.String"/>
+        <field name="sede" class="java.lang.Object"/>
+        <field name="activo" class="java.lang.String"/>
+        <background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="9" splitType="Stretch"/>
+	</title>
+      <pageHeader>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="240" y="18" width="63" height="20" uuid="9e43e6b2-7c78-4094-bd32-bbce7a7ec79c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TURNO]]></text>
+			</staticText>
+                        <staticText>
+				<reportElement x="373" y="18" width="34" height="20" uuid="14f76f42-77f2-4c4c-9596-6ec59fba0e85"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="yyyy">
+				<reportElement x="411" y="18" width="100" height="20" uuid="ac376dee-b970-4156-8eeb-e121ce7a91a3"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+
+		</band>
+	</pageHeader>
+
+	<columnHeader>
+	    <band height="22" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="20" uuid="D037C5AC-8FBC-4DE2-89E8-1BD8F919130E"/>
+                <text><![CDATA[Idturno]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="111" y="0" width="100" height="20" uuid="C90F7E17-4A70-41DB-BA25-EA1E59A67518"/>
+                <text><![CDATA[Horainicio]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="222" y="0" width="100" height="20" uuid="E55F9D3C-7602-463B-A4E4-0B53BED82F33"/>
+                <text><![CDATA[Horafin]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="333" y="0" width="100" height="20" uuid="BFEA5CC8-BEE8-4240-86EA-18619975E304"/>
+                <text><![CDATA[Sede]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="444" y="0" width="100" height="20" uuid="5549C608-49D7-42FC-BE62-0C5856F11D3A"/>
+                <text><![CDATA[Activo]]></text>
+            </staticText>
+	    </band>
+	</columnHeader>
+	<detail>
+	    <band height="23" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="100" height="20" uuid="A7029C3D-AD9A-4F1A-AF45-B9C2E60EE449"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{idturno}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="111" y="0" width="100" height="20" uuid="4F9A81AB-2088-4974-B84C-C221691AE8BB"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{horainicio}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="222" y="0" width="100" height="20" uuid="0FC6EF41-B9A6-4ECA-8E30-76A33ED1A964"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{horafin}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="333" y="0" width="100" height="20" uuid="007B38E7-CC80-46D9-AFE9-F5B46541802F"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{sede}.toString()]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="444" y="0" width="100" height="20" uuid="9F5C7FB4-D59F-4739-82C6-6488D0CC8F89"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{activo}]]></textFieldExpression>
+            </textField>
+	    </band>
+	</detail>
+    <columnFooter>
+        <band height="45" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="54" splitType="Stretch">
+            <staticText>
+                <reportElement x="407" y="17" width="36" height="20" uuid="3d031e27-b1b6-47c8-bee2-2105f7a564b2"/>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Pag.:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="446" y="17" width="100" height="20" uuid="e0da8ee5-bb5c-4545-8272-3c5e0c2c00eb"/>
+                <textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
+</jasperReport>

@@ -9,41 +9,43 @@
 
 
         <composite:attribute name="value" />
+        <composite:attribute name="multiple" default="false" />
         <composite:attribute name="itemLabel" />
-        <composite:attribute name="rendered"/>
         <composite:attribute name="update" />
-             <composite:attribute name="field"/>
+        <composite:attribute name="rendered"/>
+         <composite:attribute name="required" default="false" />
+        <composite:attribute name="field"/>
+         <composite:attribute name="size"  default="25"/>
         <composite:attribute name="listener"  
                              method-signature="void handleSelect(org.primefaces.event.SelectEvent)" />
-        
-      
 
     </composite:interface>
     <composite:implementation>
 
-
-
         <p:autoComplete     dropdown="false"    
-                         scrollHeight="250"  size="35" 
+                            scrollHeight="250"  
+                             size="#{cc.attrs.size}" 
+                             multiple="#{cc.attrs.multiple}" 
                             emptyMessage="#{app['info.nohayregistros']}" 
-                          
                             value="#{cc.attrs.value}"  
-                            completeMethod="#{agenteController.agenteServices.complete}"    
+                            completeMethod="#{usuarioController.usuarioServices.complete}"    
                             var="p"
+                            required="#{cc.attrs.required}"
                             itemLabel="#{cc.attrs.itemLabel}"
-                            itemValue="#{p}" forceSelection="true"> 
-            <f:converter binding="#{agenteConverter}"/>
-             <f:attribute name="field" value="#{cc.attrs.field}"/>
+                            itemValue="#{p}" 
+                            forceSelection="true"> 
+            <f:converter binding="#{usuarioConverter}"/>
+            <f:attribute name="field" value="#{cc.attrs.field}"/>
             <p:ajax event="itemSelect" listener="#{cc.attrs.listener}"
-                    update="#{cc.attrs.update}"/>  
+                    update="#{cc.attrs.update}" />  
             <f:facet name="itemtip">
-                <h:panelGrid columns="1" cellpadding="5">
-                    <h:outputText value="#{msg['field.nombre']} #{p.nombre}" />
-                    <h:outputText value="#{msg['field.idagente']} #{p.idagente}" />
-                    <h:outputText value="#{msg['field.siglas']} #{p.siglas}" />
-                    <h:outputText value="#{msg['field.idreloj']} #{p.idreloj}" />
-                    <h:outputText value="#{msg['field.telefono']} #{p.telefono}" />
+                <h:panelGrid columns="1" cellpadding="5" 
+                           
+                             >
 
+                    <h:outputText value="#{msg['field.username']} #{p.username}" />
+                    <h:outputText value="#{msg['field.nombre']} #{p.nombre}" />
+                  
                 </h:panelGrid>
             </f:facet>
         </p:autoComplete>  

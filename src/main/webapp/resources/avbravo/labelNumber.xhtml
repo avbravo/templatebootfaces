@@ -7,16 +7,24 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <composite:interface >
 
+
         <composite:attribute name="id" />
-      
+        <composite:attribute name="value" />
+
+        <composite:attribute name="digits" default="2"/>
+        <composite:attribute name="pattern" default="#0.00"/>
+
     </composite:interface>
     <composite:implementation>
 
- <b:growl severity="info,warn"></b:growl>
-        <b:messages 
-                    id="#{cc.attrs.id}" 
-                    globalOnly="true"                            
-                    severity="error,fatal,success,info,warn"/>
+
+        <p:outputLabel id="#{cc.attrs.id}" 
+                      value="#{cc.attrs.value}"
+                    >
+            <f:convertNumber type="number" groupingUsed="true"
+                             minFractionDigits="#{cc.attrs.digits}"
+                             pattern=#{cc.attrs.pattern}/>
+        </p:outputLabel>
 
 
 

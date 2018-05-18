@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="802" pageHeight="555" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="FB69C9F8-D307-4922-B43D-C2942CEF1736" >
+        <property name="ireport.zoom" value="1.0"/>
+        <property name="ireport.x" value="0"/>
+        <property name="ireport.y" value="0"/>
+
+        <field name="iddiasfestivo" class="java.lang.String"/>
+        <field name="fecha" class="java.util.Date"/>
+        <field name="anio" class="java.lang.Number"/>
+        <field name="activo" class="java.lang.String"/>
+        <field name="descripcion" class="java.lang.String"/>
+        <field name="tipo" class="java.lang.String"/>
+        <background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+               <band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="145" height="25" uuid="682EF899-9945-4AA8-824C-D0FDB8339E57"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIASFESTIVO ]]></text>
+			</staticText>
+		</band>
+	</title>
+      <pageHeader>
+		<band height="3" splitType="Stretch"/>
+	</pageHeader>
+
+	<columnHeader>
+	    <band height="22" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="20" uuid="EC2D40D0-04E1-4FF3-A730-398B7DF27845"/>
+                <text><![CDATA[Iddiasfestivo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="111" y="0" width="100" height="20" uuid="60A7406F-0537-4F62-BF56-B9B84E424C35"/>
+                <text><![CDATA[Fecha]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="222" y="0" width="100" height="20" uuid="E3713BC8-CBA0-4E15-9946-4DB08D11B5B9"/>
+                <text><![CDATA[Anio]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="333" y="0" width="100" height="20" uuid="68D30789-3D26-422A-ACC3-B56F01CF30FA"/>
+                <text><![CDATA[Activo]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="444" y="0" width="100" height="20" uuid="EFF1BB02-7E8A-434E-9B05-7E9399DD9264"/>
+                <text><![CDATA[Descripcion]]></text>
+            </staticText>
+	    </band>
+	</columnHeader>
+	<detail>
+	    <band height="23" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="100" height="20" uuid="B281D584-C52B-4D0B-BD25-F45292FBB5E5"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{iddiasfestivo}]]></textFieldExpression>
+            </textField>
+            <textField pattern="dd/MM/yyyy">
+                <reportElement x="111" y="0" width="100" height="20" uuid="91447F12-1798-47A9-8F7E-FCB63955023C"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="222" y="0" width="100" height="20" uuid="9BA73632-9CBF-4748-8459-5538ABD57A09"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{anio}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="333" y="0" width="100" height="20" uuid="6E4EA2C5-501A-4134-8E1E-E8097192547E"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{activo}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="444" y="0" width="100" height="20" uuid="130EF9BC-F6DC-4AD7-9360-7E265365F441"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+            </textField>
+	    </band>
+	</detail>
+    <columnFooter>
+        <band height="2" splitType="Stretch"/>
+    </columnFooter>
+    <summary>
+                <band height="18" splitType="Stretch">
+			<line>
+				<reportElement x="5" y="8" width="639" height="1" uuid="b6239680-0b79-41ce-a0aa-055c09eda3ed"/>
+			</line>
+		</band>
+    </summary>
+</jasperReport>

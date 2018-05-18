@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="63ad1a18-4d4e-44e1-97f8-c1744418d899">
+        <property name="ireport.zoom" value="1.0"/>
+        <property name="ireport.x" value="0"/>
+        <property name="ireport.y" value="144"/>
+
+        <field name="idreservadoagente" class="java.lang.String"/>
+        <field name="reservado" class="java.lang.Object"/>
+        <field name="anio" class="java.lang.Number"/>
+        <field name="agente" class="java.lang.Object"/>
+        <field name="turnodia1" class="java.lang.Number"/>
+        <field name="turnodia2" class="java.lang.Number"/>
+        <field name="turnodia3" class="java.lang.Number"/>
+        <field name="turnodia4" class="java.lang.Number"/>
+        <field name="turnodia5" class="java.lang.Number"/>
+        <field name="turnodia6" class="java.lang.Number"/>
+        <field name="turnodia7" class="java.lang.Number"/>
+        <field name="turnodia8" class="java.lang.Number"/>
+        <field name="turnodia9" class="java.lang.Number"/>
+        <field name="turnodia10" class="java.lang.Number"/>
+        <field name="turnodia11" class="java.lang.Number"/>
+        <field name="turnodia12" class="java.lang.Number"/>
+        <field name="turnodia13" class="java.lang.Number"/>
+        <field name="turnodia14" class="java.lang.Number"/>
+        <field name="turnodia15" class="java.lang.Number"/>
+        <field name="turnodia16" class="java.lang.Number"/>
+        <field name="turnodia17" class="java.lang.Number"/>
+        <field name="turnodia18" class="java.lang.Number"/>
+        <field name="turnodia19" class="java.lang.Number"/>
+        <field name="turnodia20" class="java.lang.Number"/>
+        <field name="turnodia21" class="java.lang.Number"/>
+        <field name="turnodia22" class="java.lang.Number"/>
+        <field name="turnodia23" class="java.lang.Number"/>
+        <field name="turnodia24" class="java.lang.Number"/>
+        <field name="turnodia25" class="java.lang.Number"/>
+        <field name="turnodia26" class="java.lang.Number"/>
+        <field name="turnodia27" class="java.lang.Number"/>
+        <field name="turnodia28" class="java.lang.Number"/>
+        <field name="turnodia29" class="java.lang.Number"/>
+        <field name="turnodia30" class="java.lang.Number"/>
+        <field name="turnodia31" class="java.lang.Number"/>
+        <field name="t1" class="java.lang.Number"/>
+        <field name="t2" class="java.lang.Number"/>
+        <field name="t3" class="java.lang.Number"/>
+        <field name="t4" class="java.lang.Number"/>
+        <field name="horasmes" class="java.lang.Number"/>
+        <background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="9" splitType="Stretch"/>
+	</title>
+      <pageHeader>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement x="240" y="18" width="63" height="20" uuid="9e43e6b2-7c78-4094-bd32-bbce7a7ec79c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESERVADOAGENTE]]></text>
+			</staticText>
+                        <staticText>
+				<reportElement x="373" y="18" width="34" height="20" uuid="14f76f42-77f2-4c4c-9596-6ec59fba0e85"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="yyyy">
+				<reportElement x="411" y="18" width="100" height="20" uuid="ac376dee-b970-4156-8eeb-e121ce7a91a3"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+
+		</band>
+	</pageHeader>
+
+	<columnHeader>
+	    <band height="29" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+	    <band height="520" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="20" uuid="6FE13EAE-5B4B-4F69-99C7-87CD0F80ED82"/>
+                <text><![CDATA[Idreservadoagente]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="0" width="100" height="20" uuid="B28CDF77-F428-407C-AACA-4608170F90F1"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{idreservadoagente}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="0" width="100" height="20" uuid="3696E611-AA4B-4B31-81DB-CD2AFBD8B1E3"/>
+                <text><![CDATA[Reservado]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="0" width="100" height="20" uuid="10903684-89E5-4DBD-8A0C-42CDAA23EBC0"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{reservado}.toString()]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="25" width="100" height="20" uuid="2132F93B-5FB0-4EE8-9DBF-F2293EA60C46"/>
+                <text><![CDATA[Anio]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="25" width="100" height="20" uuid="071B5373-B72C-48A1-9A77-D15BCBFF265B"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{anio}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="25" width="100" height="20" uuid="E6B4D4AB-17A0-4575-8385-42519BB9C91B"/>
+                <text><![CDATA[Agente]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="25" width="100" height="20" uuid="5F6E8C65-939C-48EF-BE00-56FA73399027"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{agente}.toString()]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="50" width="100" height="20" uuid="412AE280-BE62-462B-BCAB-B2594E8B8A72"/>
+                <text><![CDATA[Turnodia1]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="50" width="100" height="20" uuid="46558184-4FDF-46DA-8DD8-F9A78D9ACB77"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia1}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="50" width="100" height="20" uuid="5BE76313-B938-414F-8F85-974026DAD54D"/>
+                <text><![CDATA[Turnodia2]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="50" width="100" height="20" uuid="C7DAE23C-D21E-48BE-88B7-A8A2EAE1A3E6"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia2}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="75" width="100" height="20" uuid="555DDC04-519A-43B4-8879-E9C7607D114C"/>
+                <text><![CDATA[Turnodia3]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="75" width="100" height="20" uuid="1646B105-6DEB-4F38-B307-53337F1624EA"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia3}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="75" width="100" height="20" uuid="F1B2D2BF-D2BC-4D34-8534-97D57116E3E3"/>
+                <text><![CDATA[Turnodia4]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="75" width="100" height="20" uuid="3023F506-2605-4374-9F0C-AB62FA119C1C"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia4}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="100" width="100" height="20" uuid="E8E9BB97-D6B7-4916-941A-7117AE29CB87"/>
+                <text><![CDATA[Turnodia5]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="100" width="100" height="20" uuid="FC81E072-21A5-4F5F-BC05-8F3E06CBC5A5"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia5}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="100" width="100" height="20" uuid="68AEB5E8-98BE-4D21-9FB3-6C979009F485"/>
+                <text><![CDATA[Turnodia6]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="100" width="100" height="20" uuid="AA9FED14-4C9E-46CD-AD0B-C1C2A3DDC981"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia6}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="125" width="100" height="20" uuid="E110FB50-56D2-4BED-BA7D-FDAF59F24DA7"/>
+                <text><![CDATA[Turnodia7]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="125" width="100" height="20" uuid="3D2D496D-249A-489D-9294-B1A277D9BA85"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia7}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="125" width="100" height="20" uuid="0FAF121C-D46D-4A87-A405-81DC25E57A42"/>
+                <text><![CDATA[Turnodia8]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="125" width="100" height="20" uuid="54B99FFA-9736-4602-8D4D-0D7C62896489"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia8}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="150" width="100" height="20" uuid="9F73AA55-57DB-4EBA-A4AE-B74E1C13071E"/>
+                <text><![CDATA[Turnodia9]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="150" width="100" height="20" uuid="0AD13AAC-50EF-4F40-9B2A-957859845B2B"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia9}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="150" width="100" height="20" uuid="8892C028-C265-42AB-9C92-C84076072774"/>
+                <text><![CDATA[Turnodia10]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="150" width="100" height="20" uuid="19B48A38-1785-4A1F-A18C-AE636051AE10"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia10}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="175" width="100" height="20" uuid="80BCA015-E65C-48E0-88B6-CD10072421B6"/>
+                <text><![CDATA[Turnodia11]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="175" width="100" height="20" uuid="99F672AA-20D4-4A87-9281-0186C1302248"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia11}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="175" width="100" height="20" uuid="E3F5CE5C-6BAE-4395-9E8C-980FEE5F461E"/>
+                <text><![CDATA[Turnodia12]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="175" width="100" height="20" uuid="80442980-FCF1-4563-AC3D-E06E37532C1A"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia12}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="200" width="100" height="20" uuid="7CA12D3D-C66A-4FD0-A28A-9234ADAB9CB7"/>
+                <text><![CDATA[Turnodia13]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="200" width="100" height="20" uuid="3A5F5D4A-7F85-4374-9AC9-2E7053E39E5A"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia13}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="200" width="100" height="20" uuid="B98D02A3-C72C-4350-82BE-7538B86F6289"/>
+                <text><![CDATA[Turnodia14]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="200" width="100" height="20" uuid="35610B26-B054-491F-A734-C3FBEA3465F7"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia14}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="225" width="100" height="20" uuid="892217E6-5593-4B5D-BB1F-AF01B68263B9"/>
+                <text><![CDATA[Turnodia15]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="225" width="100" height="20" uuid="7B74A544-56E1-4B3F-94DC-906DC7E29BFB"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia15}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="225" width="100" height="20" uuid="D3763BF7-C0B5-4C2E-9A7C-CA98417A9674"/>
+                <text><![CDATA[Turnodia16]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="225" width="100" height="20" uuid="54620245-5710-4585-B607-A9BC3A5DDA95"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia16}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="250" width="100" height="20" uuid="D9DF55B8-F0E1-4B0E-8CC4-58EC7F0B7691"/>
+                <text><![CDATA[Turnodia17]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="250" width="100" height="20" uuid="8BB16195-BEDA-47CC-8E78-7C2ACD3F0D5D"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia17}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="250" width="100" height="20" uuid="FB6BBA05-E6C5-42C5-B88F-273969EDCF6C"/>
+                <text><![CDATA[Turnodia18]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="250" width="100" height="20" uuid="7E1803C9-A5B3-4DFF-BEC2-1FC14417E9DF"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia18}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="275" width="100" height="20" uuid="6BEAF91F-D272-4A19-894A-FB3C9B1D70D7"/>
+                <text><![CDATA[Turnodia19]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="275" width="100" height="20" uuid="C5D373AD-4D44-45FA-9001-196F024535F8"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia19}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="275" width="100" height="20" uuid="B597A237-B4EF-4FF6-8B0A-B4CD15583CF4"/>
+                <text><![CDATA[Turnodia20]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="275" width="100" height="20" uuid="4394D27F-4E4D-43E9-9740-1431EBA320A6"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia20}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="300" width="100" height="20" uuid="C88CDE0F-D5BC-4DC4-82FE-DFB5B8D7CFF2"/>
+                <text><![CDATA[Turnodia21]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="300" width="100" height="20" uuid="5CD63927-3D8B-4697-9CD6-ACABBDE33DFD"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia21}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="300" width="100" height="20" uuid="062EE547-6A1B-4887-9FAD-99FEAE648356"/>
+                <text><![CDATA[Turnodia22]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="300" width="100" height="20" uuid="CB222D41-DA1E-491B-B5C1-841B64023D3B"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia22}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="325" width="100" height="20" uuid="784DEC92-9288-4D1A-9851-7996F14B071F"/>
+                <text><![CDATA[Turnodia23]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="325" width="100" height="20" uuid="A08D5758-1A92-49EB-86AA-AE7EF024C8D5"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia23}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="325" width="100" height="20" uuid="9B7E0D3A-7033-444F-814E-7DE915A714A5"/>
+                <text><![CDATA[Turnodia24]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="325" width="100" height="20" uuid="ADB4D4C6-F2E3-40C2-A0DE-85A2C9D9735F"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia24}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="350" width="100" height="20" uuid="AD851755-2594-4D06-AEA0-EBFF3D74AB64"/>
+                <text><![CDATA[Turnodia25]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="350" width="100" height="20" uuid="E69C5522-7226-44D3-B193-B37272C37EF2"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia25}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="350" width="100" height="20" uuid="F3697A2D-1018-473C-AE0E-62C768520095"/>
+                <text><![CDATA[Turnodia26]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="350" width="100" height="20" uuid="92663943-6BD7-4C2B-BA7A-A2D4535E0CC1"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia26}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="375" width="100" height="20" uuid="683FDFD9-40E5-4C58-97E5-1E079E12E226"/>
+                <text><![CDATA[Turnodia27]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="375" width="100" height="20" uuid="61F754DC-1C45-4ABB-BBB8-3B389700F23C"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia27}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="375" width="100" height="20" uuid="33793FA8-53DE-4DE4-BCAE-1A6AD5C2D71C"/>
+                <text><![CDATA[Turnodia28]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="375" width="100" height="20" uuid="F92B1119-F97F-4C78-8DAB-2698593B32D7"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia28}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="400" width="100" height="20" uuid="5DDEE5D3-3510-4D23-80EB-1A339A807E68"/>
+                <text><![CDATA[Turnodia29]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="400" width="100" height="20" uuid="A4634C0C-2786-42A7-A554-3CA3DC6B6659"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia29}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="400" width="100" height="20" uuid="18527901-A12F-4A11-88D8-FE059E730E3E"/>
+                <text><![CDATA[Turnodia30]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="400" width="100" height="20" uuid="13B01230-FD68-421C-8F64-EEDBE5E39AA3"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia30}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="425" width="100" height="20" uuid="43949D44-08E8-48EC-85E7-FD1D11076346"/>
+                <text><![CDATA[Turnodia31]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="425" width="100" height="20" uuid="8FAB86AF-7CC9-464C-9146-46D362117C2F"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{turnodia31}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="425" width="100" height="20" uuid="0C65C652-1347-4CDA-AC72-A3FF47E8AC75"/>
+                <text><![CDATA[T1]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="425" width="100" height="20" uuid="A0B9EC3F-4F99-4E50-83A0-799C275EFE69"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{t1}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="450" width="100" height="20" uuid="59ECA5F2-0AFA-40B8-930D-2290CC87CAC5"/>
+                <text><![CDATA[T2]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="450" width="100" height="20" uuid="5BA1CE38-D036-49BD-B296-E7215C708CD3"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{t2}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="450" width="100" height="20" uuid="A053D29B-A62D-4F7B-A218-9DBCE7EB6270"/>
+                <text><![CDATA[T3]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="450" width="100" height="20" uuid="CB75961A-E0B5-4814-BD83-C324BABC4643"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{t3}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="475" width="100" height="20" uuid="3A29EA98-A9CF-4299-8B0D-FBDDCB19CBC1"/>
+                <text><![CDATA[T4]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="110" y="475" width="100" height="20" uuid="89D3ED19-37C1-4D2F-A3F3-FB1A8BF544A8"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{t4}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="270" y="475" width="100" height="20" uuid="7BA8F442-0F9E-4453-8B51-1B96CF2EE162"/>
+                <text><![CDATA[Horasmes]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="375" y="475" width="100" height="20" uuid="8DAF7445-E5D3-427B-8DA9-0F0F9F14ED84"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{horasmes}]]></textFieldExpression>
+            </textField>
+	    </band>
+	</detail>
+    <columnFooter>
+        <band height="45" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="54" splitType="Stretch">
+            <staticText>
+                <reportElement x="407" y="17" width="36" height="20" uuid="3d031e27-b1b6-47c8-bee2-2105f7a564b2"/>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Pag.:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="446" y="17" width="100" height="20" uuid="e0da8ee5-bb5c-4545-8272-3c5e0c2c00eb"/>
+                <textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
+</jasperReport>

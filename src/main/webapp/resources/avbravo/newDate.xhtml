@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <composite:interface >
+
+
+        <composite:attribute name="label" />
+        <composite:attribute name="value" />
+        <composite:attribute name="pattern" default="dd/MM/yyyy" />
+        <composite:attribute name="columns" default="1" />
+
+        <composite:attribute name="label2" default="" />
+        <composite:attribute name="value2" default=""/>
+        <composite:attribute name="disabled" default="false" />
+        <composite:attribute name="rendererList" />
+
+
+        <composite:attribute name="isnew" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="new" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="list"  
+                             method-signature="java.lang.String action()" />
+
+
+    </composite:interface>
+    <composite:implementation>
+
+
+
+        <p:remoteCommand  update=":form:content :form:panel"
+                          name="remoteid" 
+                         />
+        <b:panel title="#{app['label.new']}">
+            <b:panelGrid  columns="#{cc.attrs.columns}" size="xs" colSpans="2,1,8,1"> 
+                <b:commandButton  iconAwesome="fa-plus"         
+                                  look="success"
+                                  title="#{app['button.new']}"
+                                  action="#{cc.attrs.new}"  update=":form:content" > 
+                    <f:ajax />
+                </b:commandButton>
+                <p:outputLabel value="#{cc.attrs.label}"/>
+
+                <p:calendar
+                    value="#{cc.attrs.value}"
+                    required="false" 
+                    pattern="#{cc.attrs.pattern}"
+                    selectOtherMonths="true"
+                    navigator="true"                    
+                    >
+                    <p:ajax event="dateSelect" 
+                            listener="#{cc.attrs.isnew}"
+                            update=":form:content :form:panel" />
+                </p:calendar>
+                <b:commandButton immediate="true"
+                                 look="primary"
+                                 iconAwesome="fa-search" 
+                                 rendered="#{cc.attrs.rendererList}" 
+                                 title="#{app['button.search']}" 
+                                 action="#{cc.attrs.list}"/>                
+
+            </b:panelGrid>
+        </b:panel>
+    </composite:implementation>
+
+</html>

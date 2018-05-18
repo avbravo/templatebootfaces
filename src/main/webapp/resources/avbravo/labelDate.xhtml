@@ -7,19 +7,21 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <composite:interface >
 
-        <composite:attribute name="id" />
-      
+
+
+        <composite:attribute name="value" />
+        <composite:attribute name="pattern" default="dd/MM/yyyy"/>
+
     </composite:interface>
     <composite:implementation>
 
- <b:growl severity="info,warn"></b:growl>
-        <b:messages 
-                    id="#{cc.attrs.id}" 
-                    globalOnly="true"                            
-                    severity="error,fatal,success,info,warn"/>
 
+        <p:outputLabel  value="#{cc.attrs.value}"  >
+                  <f:convertDateTime pattern="#{cc.attrs.pattern}" />
+        </p:outputLabel>
 
-
+                                                  
+                                                  
     </composite:implementation>
 
 </html>

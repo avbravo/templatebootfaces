@@ -12,7 +12,7 @@
         <composite:attribute name="required"/>
         <composite:attribute name="rendered"/>
         <composite:attribute name="id"/>
-         <composite:attribute name="colMd" default="2"/>
+        <composite:attribute name="colMd" default="2"/>
         <composite:attribute name="labelColMd" default="2"/>
 
     </composite:interface>
@@ -21,10 +21,10 @@
         <b:selectOneMenu value="#{cc.attrs.value}"
                          colMd="#{cc.attrs.colMd}" 
                          required="#{cc.attrs.required}" 
-                         requiredMessage="#{app['title.activo']} #{app['info.notnull']}"
+                         requiredMessage="#{app['title.sexo']} #{app['info.notnull']}"
                          labelColMd="#{cc.attrs.labelColMd}" >
-            <f:selectItem itemLabel="#{app['button.yes']}" itemValue="si" />
-            <f:selectItem itemLabel="#{app['button.no']}" itemValue="no" />
+            <f:selectItem itemLabel="#{app['button.masculino']}" itemValue="masculino" />
+            <f:selectItem itemLabel="#{app['button.femenino']}" itemValue="femenino" />
 
         </b:selectOneMenu>
 

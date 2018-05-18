@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="802" pageHeight="555" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="74FAF17C-FB5D-481D-A2A3-8B63A844A286" >
+        <property name="ireport.zoom" value="1.0"/>
+        <property name="ireport.x" value="0"/>
+        <property name="ireport.y" value="0"/>
+
+        <field name="idvacacion" class="java.lang.String"/>
+        <field name="agente" class="java.lang.Object"/>
+        <field name="fechainicio" class="java.util.Date"/>
+        <field name="fechafin" class="java.util.Date"/>
+        <field name="comentario" class="java.lang.String"/>
+        <background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+               <band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="145" height="25" uuid="5E053B92-D5E9-44A0-87CC-8AABAA98EF83"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VACACION ]]></text>
+			</staticText>
+		</band>
+	</title>
+      <pageHeader>
+		<band height="3" splitType="Stretch"/>
+	</pageHeader>
+
+	<columnHeader>
+	    <band height="22" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="20" uuid="FF2B3F26-2606-4D33-8CBB-2AE4E84FCE5F"/>
+                <text><![CDATA[Idvacacion]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="111" y="0" width="100" height="20" uuid="AD8C3DB6-4102-4FB5-8ED3-3AD2707AEF43"/>
+                <text><![CDATA[Agente]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="222" y="0" width="100" height="20" uuid="41A7F916-8000-4AA8-9146-86899D94CCBE"/>
+                <text><![CDATA[Fechainicio]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="333" y="0" width="100" height="20" uuid="2BA35906-3897-4BB7-A264-FBB1F929F3A6"/>
+                <text><![CDATA[Fechafin]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="444" y="0" width="100" height="20" uuid="B17E82B0-826D-4336-A13E-96FE22D8CE78"/>
+                <text><![CDATA[Comentario]]></text>
+            </staticText>
+	    </band>
+	</columnHeader>
+	<detail>
+	    <band height="23" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="100" height="20" uuid="B99AF50A-6230-411A-9888-3D2D2D47F59B"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{idvacacion}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="111" y="0" width="100" height="20" uuid="533BEA66-768C-4D3A-8274-0F514A8B9CA8"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{agente}.toString()]]></textFieldExpression>
+            </textField>
+            <textField pattern="dd/MM/yyyy">
+                <reportElement x="222" y="0" width="100" height="20" uuid="C734FFB0-0C22-4F88-A718-89DFC6D01756"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{fechainicio}]]></textFieldExpression>
+            </textField>
+            <textField pattern="dd/MM/yyyy">
+                <reportElement x="333" y="0" width="100" height="20" uuid="EB528D61-0794-46AB-9A79-F0114FE4BAC8"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{fechafin}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="444" y="0" width="100" height="20" uuid="32B20A0C-E034-438B-A594-99D5842EF2B4"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{comentario}]]></textFieldExpression>
+            </textField>
+	    </band>
+	</detail>
+    <columnFooter>
+        <band height="2" splitType="Stretch"/>
+    </columnFooter>
+    <summary>
+                <band height="18" splitType="Stretch">
+			<line>
+				<reportElement x="5" y="8" width="639" height="1" uuid="b6239680-0b79-41ce-a0aa-055c09eda3ed"/>
+			</line>
+		</band>
+    </summary>
+</jasperReport>
