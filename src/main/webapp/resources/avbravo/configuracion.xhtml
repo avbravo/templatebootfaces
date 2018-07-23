@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/composite/avbravo">
+    <composite:interface >
+
+
+        <composite:attribute name="renderedidconfiguracion" default="false"/>
+
+
+    </composite:interface>
+    <composite:implementation>
+      
+
+
+
+            <b:panelGrid id="panel" colSpans="2,10" size="xs" rendered="#{configuracionController.writable}"> 
+
+                <p:outputLabel  value="#{msg['field.idconfiguracion']}" rendered="#{cc.attrs.renderedidconfiguracion}"/>
+                <p:outputLabel  value="#{configuracionController.configuracion.idconfiguracion}" id="idconfiguracion" rendered="#{cc.attrs.renderedidconfiguracion}"  />
+
+
+                <p:outputLabel  value="#{app['field.itbms']}" />
+                <a:inputText value="#{configuracionController.configuracion.itbms}" id="itbms"  label="#{app['field.itbms']}" />
+
+                <p:outputLabel  value="#{app['field.decimales']}" />
+                <a:inputText value="#{configuracionController.configuracion.decimales}" id="decimales"  label="#{app['field.decimales']}" />
+
+              
+                <p:outputLabel  value="#{app['field.rowsforpage']}" />
+                <a:inputText value="#{configuracionController.configuracion.rowsforpage}"  label="#{app['field.rowsforpage']}" />
+
+               
+                <p:outputLabel  value="#{msg['field.activo']}" />
+                <a:yesno value="#{configuracionController.configuracion.activo}" id="activo"  required="true"/>
+
+
+            </b:panelGrid>
+        <b:panel title="#{app['panel.formatos']}" collapsed="false">
+              <p:outputLabel  value="#{app['field.formatodecimal']}" />
+                <a:inputText value="#{configuracionController.configuracion.formatodecimal}" id="formatodecimal"  label="#{app['field.formatodecimal']}" />
+
+                <p:outputLabel  value="#{app['field.formatofecha']}" />
+                <a:inputText value="#{configuracionController.configuracion.formatofecha}"  label="#{app['field.formatofecha']}" />
+
+                <p:outputLabel  value="#{app['field.formatofechahora']}" />
+                <a:inputText value="#{configuracionController.configuracion.formatofechahora}"  label="#{app['field.formatofechahora']}" />
+
+        
+        </b:panel>
+        <b:panel title="#{app['panel.minQueryLengthAutocomplete']}" collapsed="false">
+                
+                <p:outputLabel  value="#{app['field.minQueryLengthAutocompleteSmall']}" />
+                <a:inputText value="#{configuracionController.configuracion.minQueryLengthAutocompleteSmall}"  label="#{app['field.minQueryLengthAutocompleteSmall']}" />
+
+                <p:outputLabel  value="#{app['field.minQueryLengthAutocompleteMedium']}" />
+                <a:inputText value="#{configuracionController.configuracion.minQueryLengthAutocompleteMedium}"  label="#{app['field.minQueryLengthAutocompleteMedium']}" />
+
+                <p:outputLabel  value="#{app['field.minQueryLengthAutocompleteLarge']}" />
+                <a:inputText value="#{configuracionController.configuracion.minQueryLengthAutocompleteLarge}"  label="#{app['field.minQueryLengthAutocompleteLarge']}" />
+
+</b:panel>
+
+
+
+
+    </composite:implementation>
+
+</html>

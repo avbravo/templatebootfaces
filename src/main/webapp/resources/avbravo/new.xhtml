@@ -12,11 +12,10 @@
         <composite:attribute name="label" />
         <composite:attribute name="value" />
         <composite:attribute name="columns" default="1" />
-
+        <composite:attribute name="readonly" default="false"/>
         <composite:attribute name="label2" default="" />
         <composite:attribute name="value2" default=""/>
         <composite:attribute name="disabled" default="false" />
-        <composite:attribute name="readonly" default="false" />
         <composite:attribute name="rendererList" />
 
 
@@ -40,7 +39,9 @@
             <b:panelGrid  columns="#{cc.attrs.columns}" size="xs" colSpans="1,11"> 
 
                 <p:outputLabel value="#{cc.attrs.label}"/>
-                <b:inputText                              placeholder="#{app['info.ingresenuevodato']}"
+                <b:inputText       
+                     style="text-transform: uppercase"
+                    placeholder="#{app['info.ingresenuevodato']}"
                              value="#{cc.attrs.value}" 
                              disabled="#{cc.attrs.disabled}" 
                              readonly="#{cc.attrs.readonly}" 

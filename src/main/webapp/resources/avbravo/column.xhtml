@@ -8,12 +8,12 @@
     <composite:interface >
 
 
-<!--        <composite:attribute name="param" />
-        <composite:attribute name="itemid" />-->
+        <!--        <composite:attribute name="param" />
+                <composite:attribute name="itemid" />-->
         <composite:attribute name="rendered" />
-<!--        <composite:attribute name="param2" default="" />
-        <composite:attribute name="param2value" default="" />-->
-        
+        <!--        <composite:attribute name="param2" default="" />
+                <composite:attribute name="param2value" default="" />-->
+
 
 
 
@@ -31,7 +31,7 @@
 
         <p:panelGrid columns="2" styleClass="form-group ui-panelgrid-blank" layout="grid">
             <p:row>
-                        <p:column>
+                <p:column>
 
                     <b:commandButton                 
                         style="margin-bottom:10px;"
@@ -44,20 +44,20 @@
                         <f:param name="#{cc.attrs.param2}" value="#{cc.attrs.param2value}"/>-->
                     </b:commandButton>
                 </p:column>
-                  </p:row>
-            
+            </p:row>
+
             <p:row>
                 <p:column>
                     <b:dropMenu styleClass="danger"  value="" tooltip="#{app['button.delete']}" iconAwesome="fa-trash-o">
                         <b:panel title="#{app['info.doyouwantdelete']}" >
-                           
+
                             <b:button value="#{app['button.no']}" look="success" />
                             <b:commandButton rendered="#{cc.attrs.rendered}" 
                                              look="danger"
                                              iconAwesome="fa-trash-o" 
                                              value="#{app['button.yes']}" 
                                              title="#{app['button.delete']}" 
-                                              oncomplete="remoteshowall();"
+                                             oncomplete="remoteshowall();"
                                              process=":form:dataTable" 
                                              action="#{cc.attrs.delete}" 
                                              update=":form:dataTable" > 

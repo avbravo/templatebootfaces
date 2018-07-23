@@ -9,10 +9,9 @@
 
 
         <composite:attribute name="value" />
+        <composite:attribute name="multiple" default="false" />
          <composite:attribute name="dropdown"  default="false"/>
          <composite:attribute name="minQueryLength"  default="1"/>
-        
-        <composite:attribute name="multiple" default="false" />
         <composite:attribute name="itemLabel" />
         <composite:attribute name="update" />
         <composite:attribute name="rendered"/>
@@ -26,36 +25,33 @@
     </composite:interface>
     <composite:implementation>
 
-        <p:autoComplete     dropdown="#{cc.attrs.dropdown}"    
-                            scrollHeight="250"   
-                             size="#{cc.attrs.size}"
+        <p:autoComplete    dropdown="#{cc.attrs.dropdown}"    
+                            
+                            scrollHeight="250"  
+                             size="#{cc.attrs.size}" 
                              multiple="#{cc.attrs.multiple}" 
                             emptyMessage="#{app['info.nohayregistros']}" 
                             value="#{cc.attrs.value}"  
-                            completeMethod="#{tiendaController.tiendaServices.complete}"    
+                            completeMethod="#{facturaController.completeFilter}"
                             var="p"
-                           
-                            
                              required="#{cc.attrs.required}"
                             itemLabel="#{cc.attrs.itemLabel}"
+                            title="CARACTERES #{cc.attrs.minQueryLength}"
                             itemValue="#{p}" 
                             forceSelection="true"> 
-            <f:converter binding="#{tiendaConverter}"/>
+            <f:converter binding="#{articuloConverter}"/>
             <f:attribute name="field" value="#{cc.attrs.field}"/>
-               <f:attribute name="fromstart" value="#{cc.attrs.fromstart}"/>
+            <f:attribute name="fromstart" value="#{cc.attrs.fromstart}"/>
             <f:attribute name="fielddropdown" value="#{cc.attrs.dropdown}"/>
             <f:attribute name="fieldminquerylength" value="#{cc.attrs.minQueryLength}"/>
-            
-         
             <p:ajax event="itemSelect" listener="#{cc.attrs.listener}"
                     update="#{cc.attrs.update}" />  
             <f:facet name="itemtip">
                 <h:panelGrid columns="1" cellpadding="5">
+                    <h:outputText value="#{msg['field.codigo']} #{p.codigo}" />
+                    <h:outputText value="#{msg['field.descripcion']} #{p.descripcion}" />
 
-                    <h:outputText value="#{msg['field.idtienda']} #{p.tienda}" />
-                    
 
-       
                 </h:panelGrid>
             </f:facet>
         </p:autoComplete>  

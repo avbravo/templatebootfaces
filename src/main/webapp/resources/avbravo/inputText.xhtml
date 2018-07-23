@@ -15,8 +15,6 @@
         <composite:attribute name="readonly" default="false" />
         <composite:attribute name="required" default="true"/>
         <composite:attribute name="span" default="12"/>
-        <composite:attribute name="style" default=""/>
-        <composite:attribute name="title" default=""/>
         
 
     </composite:interface>
@@ -29,8 +27,6 @@
                       required="#{cc.attrs.required}"  
                       readonly="#{cc.attrs.readonly}"  
                       mask="#{cc.attrs.mask}"
-                      style="#{cc.attrs.style}"
-                      title="#{cc.attrs.title}"
                       render-label="#{cc.attrs.render_label}"
                   span="#{cc.attrs.span}" 
                       requiredMessage="#{cc.attrs.label} #{app['info.required']}"/>
