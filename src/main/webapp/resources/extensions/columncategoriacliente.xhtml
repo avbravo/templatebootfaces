@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:e="http://xmlns.jcp.org/jsf/composite/extensions"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <composite:interface >
+
+
+        <composite:attribute name="rendered" />
+
+    </composite:interface>
+    <composite:implementation>
+
+
+        <p:panelGrid columns="2" styleClass="form-group ui-panelgrid-blank" layout="grid"
+                     rendered="#{cc.attrs.rendered}">
+
+
+            <p:row>
+                <p:column>
+                    <b:dropMenu styleClass="danger"  value="" tooltip="#{msg['button.clasificacion']}" iconAwesome="fa-address-card">
+                        <!--<b:panel  >-->
+                        <p:panelGrid columns="4" styleClass="form-group ui-panelgrid-blank" layout="grid">
+
+                        
+                            
+                            <p:repeat value="#{clienteController.clasificacionclienteServices.clasificacionclienteList}" var="itemclasificacion">
+                                <b:commandButton value="#{clienteController.primerCaracter(itemclasificacion.descripcion)}"
+                                                 look="#{clienteController.look(itemclasificacion.descripcion)}"
+                                                 title="#{itemclasificacion.descripcion}" 
+                                                 process=":form:dataTable" 
+                                                 action="#{clienteController.updateClasificacion(item,itemclasificacion)}"
+                                                 oncomplete="remoteshowall();"
+                                                 />
+                            </p:repeat>   
+
+                            <b:commandButton 
+                                iconAwesome="fa-comment-o"
+                                action="#{clienteController.forEdit(item)}"
+                                oncomplete="PF('dlg').show();"
+                                update=":form:content"  />
+
+                        </p:panelGrid>
+
+
+
+
+                        <!--</b:panel>-->
+                    </b:dropMenu>
+
+
+
+                </p:column>
+
+
+
+
+
+
+            </p:row>
+
+            <p:dialog header="#{msg['field.observacion']}" widgetVar="dlg" id="amodal2" dynamic="true" styleClass="customDialog">
+                <p:outputPanel autoUpdate="true" id="paneldialogo" >
+
+
+                    <p><b:inputTextarea  value="#{clienteController.observacion}"/></p>
+
+                    <b:commandButton  value="#{app['button.save']}"
+                                      iconAwesome="fa-floppy-o"
+                                      title="#{app['button.save']}"
+                                      action="#{clienteController.editObservacion(clienteController.observacion)}" />
+
+                </p:outputPanel>
+
+            </p:dialog>
+
+
+
+        </p:panelGrid>
+
+    </composite:implementation>
+
+</html>

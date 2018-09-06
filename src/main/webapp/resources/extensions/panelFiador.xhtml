@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:e="http://xmlns.jcp.org/jsf/composite/extensions"
+      xmlns:a="http://xmlns.jcp.org/jsf/composite/avbravo">
+    <composite:interface >
+
+
+
+
+    </composite:interface>
+    <composite:implementation>
+
+        <b:panelGrid id="panelFiador" colSpans="2,4,2,4" size="xs" > 
+            <p:outputLabel  value="#{msg['field.fiador']}" />
+            <a:inputText value="#{clienteController.fiador.fiador}" required="true" id="fiador"   label="#{msg['field.fiador']}" />
+
+            <p:outputLabel  value="#{msg['field.idfiador']}" />
+            <a:inputText value="#{clienteController.fiador.idfiador}" id="idfiador" required="true"  label="#{msg['field.idfiador']}" />
+           
+            <p:outputLabel  value="#{msg['field.parentesco']}" />
+            <a:inputText value="#{clienteController.fiador.parentesco}"  id="parentesco" required="true"  label="#{msg['field.parentesco']}" />
+
+
+            <p:outputLabel  value="#{msg['field.fechanacimiento']}" />
+            <a:calendar  value="#{clienteController.fiador.fechanacimiento}" />
+
+
+            <p:outputLabel  value="#{msg['field.sexo']}" />
+            <a:sexo value="#{clienteController.fiador.sexo}" colMd="8" labelColMd="4" />
+
+            <p:outputLabel value="#{msg['field.estadocivil']}"/>
+
+            <e:autocompleteestadocivil value="#{clienteController.fiador.estadocivil}" 
+                                       size="15"
+                                       itemLabel="#{p.descripcion}"
+                                       dropdown="true"
+                                       required="true"
+                                       minQueryLength="0"
+                                       field="descripcion"
+                                       />
+
+
+
+            <p:outputLabel  value="#{msg['field.telefono']}" />
+            <a:inputText value="#{clienteController.fiador.telefono}" id="telefonofiador"   label="#{msg['field.telefono']}" />
+
+
+            <p:outputLabel  value="#{msg['field.celular']}" />
+            <a:inputText value="#{clienteController.fiador.celular}" id="celularfiador"   label="#{msg['field.celular']}" />
+
+            <p:outputLabel  value="#{msg['field.email']}" />
+            <a:inputText value="#{clienteController.fiador.email}" id="emailfiador"  required ="false"  label="#{msg['field.email']}" />
+
+
+            <p:outputLabel  value="#{msg['field.barriada']}" />
+            <a:inputText value="#{clienteController.fiador.barriada}" id="fiadorbarriada"   label="#{msg['field.barriada']}" />
+
+
+            <p:outputLabel  value="#{msg['field.calle']}" />
+            <a:inputText value="#{clienteController.fiador.calle}" id="fiadorcalle"   label="#{msg['field.calle']}" />
+
+            <p:outputLabel  value="#{msg['field.colorcasa']}" />
+            <a:inputText value="#{clienteController.fiador.colorcasa}" id="fiadorcolorcasa"   label="#{msg['field.colorcasa']}" />
+
+
+            <p:outputLabel  value="#{msg['field.numerocasa']}" />
+            <a:inputText value="#{clienteController.fiador.numerocasa}" id="fiadornumerocasa"   label="#{msg['field.numerocasa']}" />
+
+            <p:outputLabel  value="#{msg['field.trabajoactual']}" />
+            <a:inputText value="#{clienteController.fiador.trabajo}" required="true" id="trabajofiador"   label="#{msg['field.trabajoactual']}" />
+
+            <p:outputLabel  value="#{msg['field.cargo']}" />
+            <a:inputText value="#{clienteController.fiador.cargo}" id="cargofiador" required="true"  label="#{msg['field.cargo']}" />
+            <p:spacer/>
+            <p:spacer/>
+
+            <p:outputLabel  value="#{msg['field.puntoreferencia']}" />
+            <b:inputTextarea rows="3" value="#{clienteController.fiador.puntoreferencia}" required="true" id="fiadorpuntoreferencia"   label="#{msg['field.puntoreferencia']}" />
+
+            <p:outputLabel  value="#{msg['field.observacion']}" />
+            <b:inputTextarea  rows="3" value="#{clienteController.fiador.observacion}" id="fiadorobservacion"   label="#{msg['field.observacion']}" />
+
+
+            <p:outputLabel value="#{msg['field.provincia']}"/>
+
+
+            <p:autoComplete     dropdown="true"    
+                                id="provinciafiador"
+                                scrollHeight="250"   
+                                size="20" 
+                                emptyMessage="#{app['info.nohayregistros']}" 
+                                value="#{clienteController.provinciaFiador}"  
+                                completeMethod="#{provinciaController.provinciaServices.complete}"    
+                                var="p"
+                                required="true"
+                                itemLabel="#{p.provincia}"
+                                itemValue="#{p}" 
+                                forceSelection="true"> 
+                <f:converter binding="#{provinciaConverter}"/>
+                <f:attribute name="field" value="provincia"/>
+                <f:attribute name="fielddropdown" value="true"/>
+                <f:attribute name="fieldminquerylength" value="0"/> 
+                <f:attribute name="fromstart" value="true"/>
+                <p:ajax event="itemSelect" listener="#{provinciaController.handleSelect}"
+                        update=""  />  
+                <f:facet name="itemtip">
+                    <h:panelGrid columns="1" cellpadding="5">
+
+                        <h:outputText value="#{msg['field.provincia']} #{p.provincia}" />
+
+
+                    </h:panelGrid>
+                </f:facet>
+            </p:autoComplete>  
+
+            <p:outputLabel value="#{msg['field.distrito']}"/>
+
+
+            <p:autoComplete     dropdown="true" 
+                                id="distritofiador"
+                                scrollHeight="250"   
+                                size="20" 
+                                emptyMessage="#{app['info.nohayregistros']}" 
+                                value="#{clienteController.distritoFiador}"  
+                                completeMethod="#{clienteController.completeDistritoFiador}"    
+                                var="p"
+                                required="#{true}"
+                                minQueryLength="0"
+                                itemLabel="#{p.distrito}"
+                                itemValue="#{p}" 
+                                forceSelection="true"> 
+                <f:converter binding="#{distritoConverter}"/>
+                <f:attribute name="field" value="distrito"/>
+                <f:attribute name="fielddropdown" value="true"/>
+                <f:attribute name="fieldminquerylength" value="0"/>
+                <f:attribute name="fromstart" value="true"/>
+                <p:ajax event="itemSelect" listener="#{distritoController.handleSelect}"
+                        update=""
+                        />  
+                <f:facet name="itemtip">
+                    <h:panelGrid columns="1" cellpadding="5">
+                        <h:outputText value="#{msg['field.distrito']} #{p.distrito}" />
+
+
+                    </h:panelGrid>
+                </f:facet>
+            </p:autoComplete>  
+
+            <p:outputLabel value="#{msg['field.corregimiento']}"/>
+            <p:autoComplete   
+                id="corregimientofiador"
+                scrollHeight="250"   
+                size="20" 
+                emptyMessage="#{app['info.nohayregistros']}" 
+                value="#{clienteController.corregimientoFiador}"  
+                completeMethod="#{clienteController.completeCorregimientoFiador}"    
+                var="p"
+                dropdown="true"
+                minQueryLength="0"
+                required="#{true}"
+                itemLabel="#{p.corregimiento}"
+                itemValue="#{p}" 
+                forceSelection="true"> 
+                <f:converter binding="#{corregimientoConverter}"/>
+                <f:attribute name="field" value="corregimiento"/>
+                <f:attribute name="fielddropdown" value="false"/>
+                <f:attribute name="fieldminquerylength" value="0"/>
+                <f:attribute name="fromstart" value="true"/>
+
+                <f:facet name="itemtip">
+                    <h:panelGrid columns="1" cellpadding="5">
+
+                        <h:outputText value="#{msg['field.corregimiento']} #{p.corregimiento}" />
+
+
+                    </h:panelGrid>
+                </f:facet>
+                <p:ajax event="itemSelect" listener="#{clienteController.handleSelectCorregimiento}"
+                        update=""
+                        /> 
+            </p:autoComplete>  
+
+
+        </b:panelGrid>
+    </composite:implementation>
+
+</html>

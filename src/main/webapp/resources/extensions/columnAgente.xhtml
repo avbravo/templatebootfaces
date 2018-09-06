@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <composite:interface >
+
+        <composite:attribute name="rendered" />
+       <composite:attribute name="vacacion" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="permiso" 
+                             method-signature="java.lang.String action()" />
+        <composite:attribute name="tiempoextra" 
+                             method-signature="java.lang.String action()" />
+
+    </composite:interface>
+    <composite:implementation>
+
+
+        <p:panelGrid columns="2" styleClass="form-group ui-panelgrid-blank" layout="grid">
+            <p:row>
+                <p:column>
+                    <b:commandButton                 
+                        style="margin-bottom:8px;"
+                        iconAwesome="fa-bath " 
+                        title="#{msg['button.vacaciones']}"
+                        action="#{cc.attrs.vacacion}">
+                    </b:commandButton>
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column>
+                    <b:commandButton                 
+                        style="margin-bottom:8px;"
+                        iconAwesome="fa-handshake-o " 
+                        title="#{msg['button.permiso']}"
+                        action="#{cc.attrs.permiso}">
+                     
+                    </b:commandButton>
+                </p:column>
+            </p:row>
+            <p:row>
+                <p:column>
+                    <b:commandButton                 
+                        style="margin-bottom:8px;"
+                        iconAwesome="fa-balance-scale  " 
+                        title="#{msg['button.tiempoextra']}"
+                        action="#{cc.attrs.tiempoextra}">
+                     
+                    </b:commandButton>
+                </p:column>
+            </p:row>
+
+        </p:panelGrid>
+    </composite:implementation>
+
+</html>

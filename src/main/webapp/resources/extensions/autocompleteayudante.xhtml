@@ -9,6 +9,7 @@
 
 
         <composite:attribute name="value" />
+        <composite:attribute name="disabled" default="false" />
         <composite:attribute name="multiple" default="false" />
         <composite:attribute name="dropdown"  default="false"/>
          <composite:attribute name="minQueryLength"  default="1"/>
@@ -25,7 +26,8 @@
     </composite:interface>
     <composite:implementation>
 
-        <p:autoComplete    dropdown="#{cc.attrs.dropdown}"  
+        <p:autoComplete    dropdown="#{cc.attrs.dropdown}" 
+                            disabled="#{cc.attrs.disabled}"  
                             scrollHeight="250"  
                              size="#{cc.attrs.size}" 
                              multiple="#{cc.attrs.multiple}" 

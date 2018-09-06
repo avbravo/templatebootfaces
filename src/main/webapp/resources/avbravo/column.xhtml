@@ -8,25 +8,14 @@
     <composite:interface >
 
 
-        <!--        <composite:attribute name="param" />
-                <composite:attribute name="itemid" />-->
         <composite:attribute name="rendered" />
-        <!--        <composite:attribute name="param2" default="" />
-                <composite:attribute name="param2value" default="" />-->
-
-
-
-
         <composite:attribute name="edit" 
                              method-signature="java.lang.String action()" />
         <composite:attribute name="delete" 
                              method-signature="java.lang.String action()" />
 
-
     </composite:interface>
     <composite:implementation>
-
-
 
 
         <p:panelGrid columns="2" styleClass="form-group ui-panelgrid-blank" layout="grid">
@@ -40,8 +29,7 @@
                         immediate="true"
                         oncomplete="remoteid()"
                         action="#{cc.attrs.edit}">
-<!--                        <f:param name="#{cc.attrs.param}" value="#{cc.attrs.itemid}"/>
-                        <f:param name="#{cc.attrs.param2}" value="#{cc.attrs.param2value}"/>-->
+
                     </b:commandButton>
                 </p:column>
             </p:row>

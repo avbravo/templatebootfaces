@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:e="http://xmlns.jcp.org/jsf/composite/extensions"
+      xmlns:a="http://xmlns.jcp.org/jsf/composite/avbravo">
+    <composite:interface >
+
+
+       
+
+    </composite:interface>
+    <composite:implementation>
+
+      <b:panelGrid id="panelPadre" colSpans="4,8" size="xs" > 
+                        <p:outputLabel  value="#{msg['field.padre']}" />
+                        <a:inputText value="#{clienteController.cliente.padre}" id="padre"   label="#{msg['field.padre']}" />
+
+                        <p:outputLabel  value="#{msg['field.cedulapadre']}" />
+                        <a:inputText value="#{clienteController.cliente.cedulapadre}" id="cedulapadre"   label="#{msg['field.cedulapadre']}" />
+
+                        <p:outputLabel  value="#{msg['field.telefonopadre']}" />
+                        <a:inputText value="#{clienteController.cliente.telefonopadre}" id="telefonopadre"   label="#{msg['field.telefonopadre']}" />
+
+                        <p:outputLabel  value="#{msg['field.celularpadre']}" />
+                        <a:inputText value="#{clienteController.cliente.celularpadre}" id="celularpadre" required ="false"   label="#{msg['field.celularpadre']}" />
+
+                        <p:outputLabel  value="#{msg['field.trabajoactualpadre']}" />
+                        <a:inputText value="#{clienteController.cliente.trabajoactualpadre}" id="trabajoactualpadre"   label="#{msg['field.trabajoactualpadre']}" />
+
+                        <p:outputLabel  value="#{msg['field.cargopadre']}" />
+                        <a:inputText value="#{clienteController.cliente.cargopadre}" id="cargopadre"   label="#{msg['field.cargopadre']}" />
+
+                        <p:outputLabel  value="#{msg['field.direccionpadre']}" />
+                        <a:inputText value="#{clienteController.cliente.direccionpadre}" id="direcccionpadre"   label="#{msg['field.direccionpadre']}" />
+                    </b:panelGrid>
+
+    </composite:implementation>
+
+</html>
